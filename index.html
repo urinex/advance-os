@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OS Study — Operating Systems Exam Preparation</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='46' fill='none' viewBox='0 0 48 46'><path fill='%23863bff' d='M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z'/></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div style="max-width: 1400px; margin: 0 auto; padding: 0 20px; height: 100%; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <button id="mobile-menu-btn" class="show-mobile" style="background: none; border: none; cursor: pointer; padding: 4px; display: flex; align-items: center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <a href="#/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <span style="font-size: 22;">&#x1F4BB;</span>
+            <span style="font-weight: 700; font-size: 16; color: var(--color-text); letter-spacing: -0.02em;">OS Study</span>
+          </a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span id="header-progress-text" style="font-size: 12px; font-weight: 600; color: var(--color-text-muted);">
+              <span id="header-completed-count" style="color: var(--color-primary);">0</span>/0
+            </span>
+            <div class="progress-track" style="width: 80px;">
+              <div id="header-progress-fill" class="progress-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sidebar + Main -->
+    <div style="display: flex; max-width: 1400px; margin: 0 auto;">
+      <!-- Mobile overlay -->
+      <div id="sidebar-overlay" class="app-sidebar-overlay" onclick="closeMobileSidebar()"></div>
+
+      <!-- Sidebar -->
+      <aside id="sidebar" class="app-sidebar">
+        <div>
+          <div class="nav-section-label">Study</div>
+          <a class="nav-item" href="#/" data-route="/">
+            <span class="nav-item-icon">&#x1F4CA;</span>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item" href="#/syllabus" data-route="/syllabus">
+            <span class="nav-item-icon">&#x1F4DA;</span>
+            <span>Syllabus</span>
+          </a>
+          <a class="nav-item" href="#/important" data-route="/important">
+            <span class="nav-item-icon">&#x1F525;</span>
+            <span>Important Topics</span>
+          </a>
+          <a class="nav-item" href="#/revision" data-route="/revision">
+            <span class="nav-item-icon">&#x26A1;</span>
+            <span>Quick Revision</span>
+          </a>
+        </div>
+        <div>
+          <div class="nav-section-label">Practice</div>
+          <a class="nav-item" href="#/pyqs" data-route="/pyqs">
+            <span class="nav-item-icon">&#x1F4DD;</span>
+            <span>Previous Year Qs</span>
+          </a>
+          <a class="nav-item" href="#/predictions" data-route="/predictions">
+            <span class="nav-item-icon">&#x1F52E;</span>
+            <span>Predictions</span>
+          </a>
+          <a class="nav-item" href="#/practice" data-route="/practice">
+            <span class="nav-item-icon">&#x270F;&#xFE0F;</span>
+            <span>Practice Questions</span>
+          </a>
+          <a class="nav-item" href="#/calculator" data-route="/calculator">
+            <span class="nav-item-icon">&#x1F9EE;</span>
+            <span>Calculators</span>
+          </a>
+          <a class="nav-item" href="#/exam" data-route="/exam">
+            <span class="nav-item-icon">&#x1F3AF;</span>
+            <span>Exam Mode</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <main id="main-content" class="app-main fade-in">
+        <!-- Pages rendered here by JavaScript -->
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
