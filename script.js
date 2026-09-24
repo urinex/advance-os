@@ -1199,10 +1199,6 @@ var syllabus = [
   },
 ];
 
-var syllabus;
-
-
-
 var pyqs = [
   { id:'pyq-2024-q1', year:'2024-25', section:'A', questionNumber:'Q1', questionText:'Write short notes on: (1) Time Sharing System (2) Real-Time System (3) Multi Programming System', marks:'3', type:'theory', relatedTopics:['intro-timesharing','intro-realtime','intro-classification'], difficulty:'easy', isOR:false, priority:'high' },
   { id:'pyq-2024-q2', year:'2024-25', section:'A', questionNumber:'Q2', questionText:'Explain the 5-state process state diagram, focusing on the role of schedulers in managing transitions.', marks:'5', type:'theory', relatedTopics:['pm-process-states','pm-process-transitions'], difficulty:'medium', isOR:false, priority:'very-high' },
@@ -1222,9 +1218,6 @@ var pyqs = [
   { id:'pyq-2025-q8a', year:'2025-26', section:'B', questionNumber:'Q8', questionText:'Banker Algorithm: Given Allocation, Maximum, and Available matrices, find Need Matrix, Safe State, and Safe Sequence.', marks:'5', type:'numerical', relatedTopics:['dl-avoidance-detection'], difficulty:'hard', isOR:false, priority:'very-high' },
   { id:'pyq-2025-q8b', year:'2025-26', section:'B', questionNumber:'Q8(OR)', questionText:'Write and explain an algorithm to solve the Dining Philosopher Problem using semaphores.', marks:'5', type:'theory', relatedTopics:['pm-classical-sync'], difficulty:'hard', isOR:true, priority:'high' },
 ];
-
-var pyqs;
-
 
 var predictions = [
   {
@@ -1312,7 +1305,6 @@ var predictions = [
     relatedTopics: ['cpu-scheduling-concepts', 'cpu-techniques', 'cpu-preemptive-nonpreemptive', 'cpu-fcfs', 'cpu-priority']
   },
 ];
-var predictions;
 
 // --- UTILS ---
 var PREFIX = 'os-study-';
@@ -2569,8 +2561,26 @@ function bankersAlgorithm(input) {
     render();
   };
 
+  // ── Mobile Sidebar ─────────────────────────────────────────
+  window.closeMobileSidebar = function () {
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('sidebar-overlay');
+    if (sidebar) sidebar.classList.remove('open');
+    if (overlay) overlay.classList.remove('visible');
+  };
+
+  window.openMobileSidebar = function () {
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('sidebar-overlay');
+    if (sidebar) sidebar.classList.add('open');
+    if (overlay) overlay.classList.add('visible');
+  };
+
   // ── Init ─────────────────────────────────────────────────────
-  window.addEventListener('hashchange', render);
+  window.addEventListener('hashchange', function () {
+    closeMobileSidebar();
+    render();
+  });
   document.addEventListener('DOMContentLoaded', render);
 
   if (document.readyState !== 'loading') {
